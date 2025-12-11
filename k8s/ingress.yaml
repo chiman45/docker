@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: chiman-project
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: chiman-project.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: chiman-project
+            port:
+              number: 80
+  # tls:
+  # - hosts:
+  #   - chiman-project.example.com
+  #   secretName: chiman-project-tls
