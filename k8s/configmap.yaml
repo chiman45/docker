@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
-metadata
-   name: chiman-project-config
-   labels:
-      app: chiman-project
+
+metadata:
+  name: chiman-project-config:
+  labels:
+    app: chiman-project
+
 data:
-  # Add your configuration here
-  # VITE_API_URL: "https://api.example.com"
-  # VITE_APP_TITLE: "Chiman Project"
+  VITE_API_URL: "https://api.example.com"
+  VITE_APP_TITLE: "Chiman Project"
