@@ -4,9 +4,12 @@ metadata:
   name: chiman-project
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    # cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+      - chiman-project.example.com
+    secretName: chiman-project-tls
   rules:
   - host: chiman-project.example.com
     http:
@@ -17,8 +20,4 @@ spec:
           service:
             name: chiman-project
             port:
-              number: 80
-  # tls:
-  # - hosts:
-  #   - chiman-project.example.com
-  #   secretName: chiman-project-tls
+              number: 8080

@@ -4,6 +4,7 @@ metadata:
   name: chiman-project
   labels:
     app: chiman-project
+  kind: ClusterService
 spec:
   type: LoadBalancer
   ports:
